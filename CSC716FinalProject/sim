@@ -1,0 +1,58 @@
+#!/bin/bash
+
+
+
+no_args="true"
+while getopts 'dva: ' OPTION; do
+	case "$OPTION" in
+		d)
+			g++ -o RMAlg RM_Algorithm/RMAlg.cpp
+                        ./RMAlg d <input
+			g++ -o EDFAlg EDF_Algorithm/EDFAlg.cpp
+                        ./EDFAlg d <input
+			g++ -o DMAlg DM_Algorithm/DMAlg.cpp
+                        ./DMAlg d <input			
+                        ;;	
+
+		v)
+			g++ -o RMAlg RM_Algorithm/RMAlg.cpp  
+                        ./RMAlg v <input
+			g++ -o EDFAlg EDF_Algorithm/EDFAlg.cpp
+                        ./EDFAlg v <input
+			g++ -o DMAlg DM_Algorithm/DMAlg.cpp
+                        ./DMAlg v <input
+		
+			;;
+		a)
+			avalue="$OPTARG"
+			if [ $avalue == "RM" ]; then
+				g++ -o RMAlg RM_Algorithm/RMAlg.cpp  
+                        	./RMAlg a avalue <input
+			elif [ $avalue == "EDF" ]; then
+                                g++ -o EDFAlg EDF_Algorithm/EDFAlg.cpp
+                        	./EDFAlg a avalue <input
+                        elif [ $avalue == "DM" ]; then
+                                g++ -o DMAlg DM_Algorithm/DMAlg.cpp
+                        	./DMAlg a avalue <input
+                        else
+                                echo "Invalid algorithm passed. Choices can be RM, DM or EDF."
+				exit 1
+                        fi
+			;;
+ 		?)
+			echo "Invalid argument passed"
+			exit 1
+			;;
+	esac
+	no_args="false"
+done
+
+if (( $OPTIND == 1 )); then
+
+	g++ -o RMAlg RM_Algorithm/RMAlg.cpp
+        ./RMAlg <input
+	g++ -o EDFAlg EDF_Algorithm/EDFAlg.cpp
+        ./EDFAlg <input
+	g++ -o DMAlg DM_Algorithm/DMAlg.cpp
+        ./DMAlg <input
+fi

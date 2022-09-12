@@ -1,0 +1,32 @@
+What and where each file is:
+The input file holds the input information
+The sim file is a bash script where different options are parsed
+The algorithm specific codes are in there respective folders 
+The folder named Paper holds the final paper report 
+The file titled input_generator.c outputs the values needed for our input based on specific ranges and probabilities defined
+The Folder titled Final Presentation holds the presentation for our project
+The folder titled Results holds the findings of each algorithm
+
+
+
+To run code:
+Note: If input file is changed, execution time of processes needs to be hardcoded into the cpp files of each algorithm in folders RM_Algorithm, EDF_Algorithm, and DM_algorithm 
+
+Change into the directory titled CSC716FinalProject
+Run command "chmod +x sim"
+Run different commands based on preferred options. Commands include:
+	Default output: 	./sim <input
+
+ 
+	Algorithm Specific Output: 	./sim -a RM <input
+					./sim -a EDF <input
+					./sim -a DM <input
+
+
+	Detailed Output:	./sim -d <input
+
+	Verbose Output:		./sim -v <input 
+
+Note: If running ./sim returns "operation not permitted" then first run the following command before running sim:
+xattr -d com.apple.quarantine <path to sim>
+ 
