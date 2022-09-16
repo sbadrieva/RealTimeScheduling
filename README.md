@@ -15,15 +15,20 @@ HOW TO RUN CODE
 
 
 What and where each file is:
+
 The input file holds the input information
+
 The sim file is a bash script where different options are parsed
+
 The algorithm specific codes are in there respective folders 
+
 The folder named Paper holds the final paper report 
+
 The file titled input_generator.c outputs the values needed for our input based on specific ranges and probabilities defined
+
 The Folder titled Final Presentation holds the presentation for our project
+
 The folder titled Results holds the findings of each algorithm
-
-
 
 To run code:
 Note: If input file is changed, execution time of processes needs to be hardcoded into the cpp files of each algorithm in folders RM_Algorithm, EDF_Algorithm, and DM_algorithm 
